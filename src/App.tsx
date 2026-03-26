@@ -1,0 +1,21 @@
+import type { JSX } from 'react';
+
+import { BenchmarkControls, BenchmarkResults, CodePreview } from './components';
+
+const App: React.FC = (): JSX.Element => {
+  return (
+    <div className='min-h-screen bg-[#1a1a1a] text-white'>
+      <div className='max-w-3xl mx-auto px-6 py-12 flex flex-col gap-6'>
+        <header>
+          <h1 className='text-2xl font-bold text-gray-400'>JS vs WebAssembly Benchmark</h1>
+          <p className='text-sm text-gray-500 mt-1'>C++ compiled to WASM vs pure JavaScript</p>
+        </header>
+        <BenchmarkControls />
+        <BenchmarkResults />
+        <CodePreview />
+      </div>
+    </div>
+  );
+};
+
+export default App;
