@@ -1,8 +1,8 @@
-import type { JSX } from 'react';
+import type { FC, JSX } from 'react';
 
-import { BenchmarkControls, BenchmarkResults, CodePreview } from './components';
+import { BenchmarkControls, BenchmarkResults, CodePreview, SpeedupBanner } from './components';
 
-const App: React.FC = (): JSX.Element => {
+const App: FC = (): JSX.Element => {
   return (
     <div className='min-h-screen bg-[#1a1a1a] text-white'>
       <div className='max-w-3xl mx-auto px-6 py-12 flex flex-col gap-6'>
@@ -11,6 +11,7 @@ const App: React.FC = (): JSX.Element => {
           <p className='text-sm text-gray-500 mt-1'>C++ compiled to WASM vs pure JavaScript</p>
         </header>
         <BenchmarkControls />
+        <SpeedupBanner />
         <BenchmarkResults />
         <CodePreview />
       </div>
