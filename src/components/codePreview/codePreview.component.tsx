@@ -1,6 +1,6 @@
 import type { FC, JSX } from 'react';
 
-import type { AlgorithmType } from '../../types';
+import type { AlgorithmType } from '#types';
 
 const CODE_SNIPPETS: Record<AlgorithmType, string[]> = {
   quicksort: [

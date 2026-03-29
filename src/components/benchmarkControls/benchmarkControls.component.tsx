@@ -1,8 +1,8 @@
 import { type ChangeEvent, type FC, type JSX, useState } from 'react';
 
-import { algorithms } from '../../consts';
-import type { AlgorithmButton } from '../../interfaces';
-import type { AlgorithmType } from '../../types';
+import { algorithms } from '#consts';
+import type { AlgorithmButton } from '#interfaces';
+import type { AlgorithmType } from '#types';
 
 export const BenchmarkControls: FC = (): JSX.Element => {
   const [activeAlgorithm, setActiveAlgorithm] = useState<AlgorithmType>('quicksort');
@@ -38,7 +38,7 @@ export const BenchmarkControls: FC = (): JSX.Element => {
           <span className='text-gray-300 text-sm shrink-0'>n =</span>
           <input
             type='range'
-            min={1000}
+            min={100}
             max={1000000}
             value={n}
             onChange={(e: ChangeEvent<HTMLInputElement>): void => setN(Number(e.target.value))}
