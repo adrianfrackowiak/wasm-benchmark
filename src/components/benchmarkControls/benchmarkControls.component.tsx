@@ -1,12 +1,11 @@
-import { type ChangeEvent, type FC, type JSX, useState } from 'react';
+import { type ChangeEvent, type FC, type JSX } from 'react';
 
 import { algorithms } from '#consts';
-import type { AlgorithmButton } from '#interfaces';
-import type { AlgorithmType } from '#types';
+import { useApp } from '#hooks';
+import type { AlgorithmButton, UseApp } from '#interfaces';
 
 export const BenchmarkControls: FC = (): JSX.Element => {
-  const [activeAlgorithm, setActiveAlgorithm] = useState<AlgorithmType>('quicksort');
-  const [n, setN] = useState<number>(100000);
+  const { appState, setAlgorithm, setN }: UseApp = useApp();
 
   return (
     <div className='rounded-xl bg-[#2a2a2a] p-6 flex flex-col gap-6'>
@@ -18,9 +17,9 @@ export const BenchmarkControls: FC = (): JSX.Element => {
           {algorithms.map((algorithm: AlgorithmButton): JSX.Element => (
             <button
               key={algorithm.value}
-              onClick={(): void => setActiveAlgorithm(algorithm.value)}
+              onClick={(): void => setAlgorithm(algorithm.value)}
               className={`px-4 py-3 rounded-lg border text-sm font-medium transition-colors cursor-pointer ${
-                activeAlgorithm === algorithm.value
+                appState.algorithm === algorithm.value
                   ? 'bg-[#1e3a5f] border-blue-500 text-white'
                   : 'bg-[#1a1a1a] border-[#3a3a3a] text-gray-300 hover:border-gray-500'
               }`}
@@ -38,14 +37,14 @@ export const BenchmarkControls: FC = (): JSX.Element => {
           <span className='text-gray-300 text-sm shrink-0'>n =</span>
           <input
             type='range'
-            min={100}
+            min={1000}
             max={1000000}
-            value={n}
+            value={appState.n}
             onChange={(e: ChangeEvent<HTMLInputElement>): void => setN(Number(e.target.value))}
             className='flex-1 accent-blue-500'
           />
           <span className='text-white font-bold text-sm w-20 text-right shrink-0'>
-            {n.toLocaleString('en-US')}
+            {appState.n.toLocaleString('en-US')}
           </span>
         </div>
       </div>

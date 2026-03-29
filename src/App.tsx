@@ -1,8 +1,12 @@
 import type { FC, JSX } from 'react';
 
 import { AppProvider, BenchmarkControls, BenchmarkResults, CodePreview, SpeedupBanner } from '#components';
+import { useApp } from '#hooks';
+import type { UseApp } from '#interfaces';
 
 const App: FC = (): JSX.Element => {
+  const { appState }: UseApp = useApp();
+
   return (
     <AppProvider>
       <div className='min-h-screen bg-[#1a1a1a] text-white'>
@@ -12,7 +16,7 @@ const App: FC = (): JSX.Element => {
             <p className='text-sm text-gray-500 mt-1'>C++ compiled to WASM vs pure JavaScript</p>
           </header>
           <BenchmarkControls />
-          <SpeedupBanner />
+          {appState.status === 'done' && <SpeedupBanner />}
           <BenchmarkResults />
           <CodePreview />
         </div>
