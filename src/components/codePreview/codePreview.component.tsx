@@ -1,6 +1,8 @@
 import type { FC, JSX } from 'react';
 
-import type { AlgorithmType } from '../../types';
+import { useApp } from '#hooks';
+import type { UseApp } from '#interfaces';
+import type { AlgorithmType } from '#types';
 
 const CODE_SNIPPETS: Record<AlgorithmType, string[]> = {
   quicksort: [
@@ -24,8 +26,8 @@ const CODE_SNIPPETS: Record<AlgorithmType, string[]> = {
 };
 
 export const CodePreview: FC = (): JSX.Element => {
-  const activeAlgorithm: AlgorithmType = 'quicksort';
-  const lines = CODE_SNIPPETS[activeAlgorithm];
+  const { appState }: UseApp = useApp();
+  const lines: string[] = CODE_SNIPPETS[appState.algorithm];
 
   return (
     <div className='rounded-xl bg-[#2a2a2a] p-6 flex flex-col gap-4'>

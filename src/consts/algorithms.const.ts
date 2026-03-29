@@ -1,4 +1,4 @@
-import type { AlgorithmButton } from '../interfaces';
+import type { AlgorithmButton } from '#interfaces';
 
 export const algorithms: AlgorithmButton[] = [
   { label: 'Quicksort', value: 'quicksort' },

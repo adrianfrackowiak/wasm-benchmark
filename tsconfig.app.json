@@ -22,7 +22,25 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "#components": ["src/components/index.ts"],
+      "#components/*": ["src/components/*"],
+      "#consts": ["src/consts/index.ts"],
+      "#consts/*": ["src/consts/*"],
+      "#contexts": ["src/contexts/index.ts"],
+      "#contexts/*": ["src/contexts/*"],
+      "#hooks": ["src/hooks/index.ts"],
+      "#hooks/*": ["src/hooks/*"],
+      "#interfaces": ["src/interfaces/index.ts"],
+      "#interfaces/*": ["src/interfaces/*"],
+      "#reducers": ["src/reducers/index.ts"],
+      "#reducers/*": ["src/reducers/*"],
+      "#types": ["src/types/index.ts"],
+      "#types/*": ["src/types/*"]
+    }
   },
   "include": ["src"]
 }

@@ -1,6 +1,6 @@
-import type { AlgorithmType } from '../types';
+import type { AlgorithmType } from '#types';
 
-export interface AlgorithmButton { 
-  label: string; 
+export interface AlgorithmButton {
+  label: string;
   value: AlgorithmType;
 }
